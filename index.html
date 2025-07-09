@@ -1,227 +1,158 @@
-<!DOCTYPE html>
-<html lang="tl">
+<!DOCTYPE html><html lang="tl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy 3rd Monthsary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    body {
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      font-family: 'Cinzel', serif;
-      color: #fff;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
+    }body {
+  height: 100vh;
+  background-color: #2f2f2f; /* gray background */
+  overflow: hidden;
+  color: white;
+  font-family: 'Cinzel', serif;
+  position: relative;
+}
 
-    .stars, .stars2, .stars3 {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-repeat: repeat;
-      background-size: cover;
-      z-index: 0;
-    }
+.stars {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: absolute;
+  z-index: 0;
+}
 
-    .stars {
-      background-image: url('https://i.ibb.co/Q9yv34c/stars1.png');
-      animation: twinkle 100s linear infinite;
-    }
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: white;
+  animation: shoot 3s linear infinite;
+  opacity: 0;
+}
 
-    .stars2 {
-      background-image: url('https://i.ibb.co/Q9yv34c/stars1.png');
-      opacity: 0.5;
-      animation: twinkle 150s linear infinite;
-    }
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(800px, 800px);
+    opacity: 0;
+  }
+}
 
-    .stars3 {
-      background-image: url('https://i.ibb.co/Q9yv34c/stars1.png');
-      opacity: 0.2;
-      animation: twinkle 200s linear infinite;
-    }
+.message-box {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
 
-    @keyframes twinkle {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 5000px; }
-    }
+.sun {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffd700, #ff8c00);
+  border-radius: 50%;
+  z-index: 1;
+}
 
-    .shooting-star {
-      position: absolute;
-      width: 2px;
-      height: 80px;
-      background: linear-gradient(white, transparent);
-      opacity: 0;
-      animation: shoot 2s linear infinite;
-      transform: rotate(45deg);
-    }
+.sun::after {
+  content: "Annie";
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Cinzel', serif;
+}
 
-    @keyframes shoot {
-      0% { transform: translate(0, 0) rotate(45deg); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translate(800px, 800px) rotate(45deg); opacity: 0; }
-    }
+.orbit {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
 
-    .moon {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      font-size: 3rem;
-      filter: drop-shadow(0 0 10px #fff);
-      z-index: 1;
-    }
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-    .sun-system {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 200px;
-    }
+.planet {
+  width: 40px;
+  height: 40px;
+  background: #00bfff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-    .sun {
-      width: 80px;
-      height: 80px;
-      background: radial-gradient(circle, #ffd700, #ff8c00);
-      border-radius: 50%;
-      position: absolute;
-      top: 60px;
-      left: 60px;
-      box-shadow: 0 0 20px #ffc400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pulse 2s infinite;
-    }
+.planet::after {
+  content: "Ethan";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 0.9rem;
+  font-family: 'Cinzel', serif;
+}
 
-    .sun-name {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.8rem;
-      color: #fff8d8;
-      font-weight: bold;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #ffc400; }
-      50% { box-shadow: 0 0 30px #ffd966; }
-      100% { box-shadow: 0 0 10px #ffc400; }
-    }
-
-    .planet {
-      width: 20px;
-      height: 20px;
-      background: #50c2ff;
-      border-radius: 50%;
-      position: absolute;
-      top: 90px;
-      left: 90px;
-      animation: orbit 6s linear infinite;
-      box-shadow: 0 0 10px #80d4ff;
-    }
-
-    .planet-name {
-      position: absolute;
-      top: -25px;
-      left: -10px;
-      font-size: 0.7rem;
-      color: #aadfff;
-      font-weight: bold;
-    }
-
-    @keyframes orbit {
-      0% {
-        transform: rotate(0deg) translateX(70px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translateX(70px) rotate(-360deg);
-      }
-    }
-
-    .orbit-ring {
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border: 1px dashed rgba(255,255,255,0.2);
-      border-radius: 50%;
-      top: 30px;
-      left: 30px;
-    }
-
-    .card {
-      position: relative;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 2rem;
-      max-width: 600px;
-      color: #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      line-height: 1.8;
-    }
-
-    h1 {
-      text-align: center;
-      color: #ffdde1;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    /* Shooting Star Positions */
-    .shooting-star:nth-child(1) { left: 10%; animation-delay: 2s; }
-    .shooting-star:nth-child(2) { left: 30%; animation-delay: 4s; }
-    .shooting-star:nth-child(3) { left: 60%; animation-delay: 6s; }
-    .shooting-star:nth-child(4) { left: 80%; animation-delay: 8s; }
-    .shooting-star:nth-child(5) { left: 40%; animation-delay: 10s; }
   </style>
 </head>
 <body>
-
   <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
-
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-
-  <div class="moon">🌕</div>
-
-  <div class="sun-system">
-    <div class="sun">
-      <div class="sun-name">Meryl</div>
-    </div>
-    <div class="orbit-ring"></div>
-    <div class="planet">
-      <div class="planet-name">Ethan</div>
-    </div>
-  </div>
-
-  <div class="card">
+  <!-- 10 random shooting stars -->
+  <script>
+    for (let i = 0; i < 10; i++) {
+      const star = document.createElement('div');
+      star.classList.add('shooting-star');
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(star);
+    }
+  </script>  <div class="message-box">
     <h1>Hi babyyy! Happy 3rd Monthsary!!</h1>
-    <p>Tatlong buwan na, pero para bang kahapon lang nang nagsimula ang lahat. Sa bawat araw na lumilipas, mas lalo kitang minamahal. Hindi madali ang bawat misyon, pero dahil kasama kita, lahat ay nagiging posible.</p>
-    <p>Salamat sa pagmamahal mo, sa pag-unawa, at sa pagiging ikaw. Ikaw ang tahanan ko sa gitna ng gulo. Ang pahinga ko sa bawat pagod. Ang dahilan kung bakit gusto kong magsikap at lumaban araw-araw.</p>
-    <p>Tatlong buwan pa lang tayo, pero ramdam ko—ikaw na talaga. At habang tumatagal, mas lalo kong pinapahalagahan ang bawat sandali natin. Sana, kahit anong pagsubok pa ang dumating, sabay pa rin nating haharapin. Kasama ka. Kasama ako. Tayong dalawa.</p>
-    <p>Mahal na mahal kita.</p>
+    <p style="margin-top: 15px; font-size: 1.1rem;">
+      Tatlong buwan na, pero para bang kahapon lang nang nagsimula ang lahat.<br>
+      Sa bawat araw na lumilipas, mas lalo kitang minamahal.<br>
+      Hindi madali ang bawat misyon, pero dahil kasama kita, lahat ay nagiging posible.<br><br>
+      Salamat sa pagmamahal mo, sa pag-unawa, at sa pagiging ikaw.<br>
+      Ikaw ang tahanan ko sa gitna ng gulo. Ang pahinga ko sa bawat pagod.<br>
+      Ang dahilan kung bakit gusto kong magsikap at lumaban araw-araw.<br><br>
+      Tatlong buwan pa lang tayo, pero ramdam ko—ikaw na talaga.<br>
+      At habang tumatagal, mas lalo kong pinapahalagahan ang bawat sandali natin.<br>
+      Sana, kahit anong pagsubok pa ang dumating, sabay pa rin nating haharapin.<br>
+      Kasama ka. Kasama ako. Tayong dalawa.<br><br>
+      Mahal na mahal kita.
+    </p>
+  </div>  <div class="sun"></div>
+  <div class="orbit">
+    <div class="planet"></div>
   </div>
-
 </body>
 </html>
