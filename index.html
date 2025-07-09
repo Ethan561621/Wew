@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy 3rd Monthsary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family: 'Cinzel', serif;
+      color: #fff;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .stars, .stars2, .stars3 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: repeat;
+      z-index: 0;
+    }
+
+    .stars {
+      background: url('https://i.imgur.com/U3XoyA2.png');
+      animation: twinkle 100s linear infinite;
+    }
+
+    .stars2 {
+      background: url('https://i.imgur.com/U3XoyA2.png');
+      opacity: 0.5;
+      animation: twinkle 150s linear infinite;
+    }
+
+    .stars3 {
+      background: url('https://i.imgur.com/U3XoyA2.png');
+      opacity: 0.2;
+      animation: twinkle 200s linear infinite;
+    }
+
+    @keyframes twinkle {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      opacity: 0;
+      animation: shoot 2s linear infinite;
+      transform: rotate(45deg);
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(800px, 800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .moon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 3rem;
+      filter: drop-shadow(0 0 10px #fff);
+      z-index: 1;
+    }
+
+    .sun-system {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+    }
+
+    .sun {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #ffd700, #ff8c00);
+      border-radius: 50%;
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      box-shadow: 0 0 20px #ffc400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s infinite;
+    }
+
+    .sun::after {
+      content: "Meryl";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: #fff8d8;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ffc400; }
+      50% { box-shadow: 0 0 30px #ffd966; }
+      100% { box-shadow: 0 0 10px #ffc400; }
+    }
+
+    .planet {
+      width: 20px;
+      height: 20px;
+      background: #50c2ff;
+      border-radius: 50%;
+      position: absolute;
+      top: 90px;
+      left: 90px;
+      animation: orbit 6s linear infinite;
+      box-shadow: 0 0 10px #80d4ff;
+    }
+
+    .planet::after {
+      content: "Ethan";
+      position: absolute;
+      top: -25px;
+      left: -10px;
+      font-size: 0.7rem;
+      color: #aadfff;
+      font-weight: bold;
+    }
+
+    @keyframes orbit {
+      0% {
+        transform: rotate(0deg) translateX(70px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(70px) rotate(-360deg);
+      }
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 50%;
+      top: 30px;
+      left: 30px;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      line-height: 1.8;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffdde1;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .constellation {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 150px;
+      height: 150px;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #fff;
+    }
+
+    .line {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      height: 2px;
+      transform-origin: left;
+    }
+
+    /* Shooting Star Positions */
+    .shooting-star:nth-child(1) { left: 10%; animation-delay: 2s; }
+    .shooting-star:nth-child(2) { left: 30%; animation-delay: 4s; }
+    .shooting-star:nth-child(3) { left: 60%; animation-delay: 6s; }
+    .shooting-star:nth-child(4) { left: 80%; animation-delay: 8s; }
+    .shooting-star:nth-child(5) { left: 40%; animation-delay: 10s; }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+
+  <div class="moon">🌕</div>
+
+  <div class="constellation">
+    <!-- Heart constellation (simplified) -->
+    <div class="star" style="top: 10px; left: 50px;"></div>
+    <div class="star" style="top: 30px; left: 30px;"></div>
+    <div class="star" style="top: 30px; left: 70px;"></div>
+    <div class="star" style="top: 60px; left: 50px;"></div>
+    <div class="star" style="top: 90px; left: 50px;"></div>
+
+    <div class="line" style="top: 12px; left: 52px; width: 20px; transform: rotate(135deg);"></div>
+    <div class="line" style="top: 12px; left: 38px; width: 20px; transform: rotate(45deg);"></div>
+    <div class="line" style="top: 30px; left: 38px; width: 34px;"></div>
+    <div class="line" style="top: 30px; left: 68px; width: 2px; height: 30px;"></div>
+    <div class="line" style="top: 60px; left: 50px; width: 2px; height: 30px;"></div>
+  </div>
+
+  <div class="sun-system">
+    <div class="sun"></div>
+    <div class="orbit-ring"></div>
+    <div class="planet"></div>
+  </div>
+
+  <div class="card">
+    <h1>Hi babyyy! Happy 3rd Monthsary!!</h1>
+    <p>Tatlong buwan na, pero para bang kahapon lang nang nagsimula ang lahat. Sa bawat araw na lumilipas, mas lalo kitang minamahal. Hindi madali ang bawat misyon, pero dahil kasama kita, lahat ay nagiging posible.</p>
+    <p>Salamat sa pagmamahal mo, sa pag-unawa, at sa pagiging ikaw. Ikaw ang tahanan ko sa gitna ng gulo. Ang pahinga ko sa bawat pagod. Ang dahilan kung bakit gusto kong magsikap at lumaban araw-araw.</p>
+    <p>Tatlong buwan pa lang tayo, pero ramdam ko—ikaw na talaga. At habang tumatagal, mas lalo kong pinapahalagahan ang bawat sandali natin. Sana, kahit anong pagsubok pa ang dumating, sabay pa rin nating haharapin. Kasama ka. Kasama ako. Tayong dalawa.</p>
+    <p>Mahal na mahal kita.</p>
+  </div>
+
+</body>
+</html>
